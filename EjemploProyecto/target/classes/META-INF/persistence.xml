@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="departamentos" transaction-type="RESOURCE_LOCAL">
+		<class>Objetos.Departamento</class>
+		<class>Objetos.Empleado</class>
+		<class>Objetos.Proyecto</class>
+		<properties>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			
+			<!-- Datos de conexión a la base de datos -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:7706:3306/test" />
+			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="toor" />
+
+			<!-- Inicialización de datos de la base de datos -->
+			<property name="javax.persistence.schema-generation.database.action" value="none" />
+			<property name="javax.persistence.schema-generation.create-source" value="script" />
+			<property name="javax.persistence.schema-generation.drop-source" value="script" />
+			<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/sql/create.sql" />
+			<property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/sql/drop.sql" />
+			<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/insert.sql" />
+ 		</properties>
+	</persistence-unit>
+</persistence>
